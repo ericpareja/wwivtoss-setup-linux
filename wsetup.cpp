@@ -718,7 +718,7 @@ void init_wwivtoss_config(void)
 void
 display_main ()
 {
-    char line[81] = "\0";
+    char line[181] = "\0";
     sprintf (line, " WWIVToss Alt Setup v0.01 : %s (%d:%d/%d.%d) ",
              syscfg.systemname, cfg.aka_list[0].zone, cfg.aka_list[0].net,
              cfg.aka_list[0].node, cfg.aka_list[0].point);
@@ -868,7 +868,7 @@ void
 edit_node(int nodenum)
 {
     int bDone=0,x=0,key;
-    char s[80];
+    char s[81];
     while (!bDone) {
         display_node(nodenum);
         mvwprintw(sub_win,2,2,"*** EDITING NODE ***");
@@ -934,7 +934,7 @@ edit_node(int nodenum)
 void
 edit_uplink(int nodenum)
 {   int bDone=0,x=0,key;
-    char s[80];
+    char s[81];
     while (!bDone) {
         display_uplink(nodenum);
         //        mvwprintw(sub_win,2,2,"*** EDITING NODE ***");
@@ -1460,7 +1460,7 @@ void
 NetworkAddresses ()
 {
     int key, bDone = 0;
-    char s[81], temp[81];
+    char s[161], temp[80];
     clear ();
     display_main ();
     int x = 0;
@@ -1771,7 +1771,7 @@ void
 edit_archiver (int i)
 {
     int bDone=0,key,x=0;
-    char s[80];
+    char s[81];
     WINDOW *w;
     if (i == 0)
     {
@@ -2204,8 +2204,8 @@ NodeManager ()
 void
 edit_route (int i)
 {
-    char s[80];
-    char temp[80];
+    char s[81];
+    char temp[81];
     int route_to;
     FIDOADR fadr;
     mvwchgat (sub_win, 4 + i, 12, 18, A_REVERSE, COLOR_BLUE, NULL);
@@ -2243,7 +2243,7 @@ void
 RouteManager ()
 {
     int x = 0, bDone = 0, key;
-    char s[80];
+    char s[81];
     char temp[50];
     clear ();
     display_main ();
@@ -2363,7 +2363,7 @@ AboutWWIVTOSS ()
     clear ();
     display_main ();
     display_title ("About WWIVToss");
-    w=newwin(11,41,6,20);
+    w=newwin(11,44,6,20);
     box(w,0,0);
     mvwprintw (w, 1, 1, "WWIVTOSS");
     mvwprintw (w, 2, 1, "Version: %s",VERSION);

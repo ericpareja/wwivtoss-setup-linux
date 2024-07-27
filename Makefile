@@ -1,6 +1,6 @@
 wsetup: wsetup.cpp fidoadr.o
 	astyle wsetup.cpp
-	g++ -o wsetup fidoadr.o wsetup.cpp -ggdb -D_DEBUG -std=c++11 -lmenu -lncurses -fpermissive
+	g++ -o wsetup fidoadr.o wsetup.cpp -ggdb -D_DEBUG -std=c++11 -lmenu -lncurses -fpermissive -fPIE
 
 share.o: share.cpp
 	g++ -c -o share.o share.cpp -std=c++11
@@ -12,13 +12,13 @@ dawg.o: dawg.cpp
 	g++ -c -o dawg.o dawg.cpp -std=c++11
 
 fidoadr.o: fidoadr.cpp
-	g++ -c -o fidoadr.o fidoadr.cpp -std=c++11
+	g++ -c -o fidoadr.o fidoadr.cpp -std=c++11 -fPIE
 
 wwivtoss: wwivtoss.cpp share.o export.o dawg.o
 	g++ -o wwivtoss wwivtoss.cpp share.o export.o dawg.o -ggdb -D_DEBUG -std=c++11 -fpermissive
 
 
 clean:
-	rm wsetup
+	rm wsetup *.o
 
 #-fpermissive
